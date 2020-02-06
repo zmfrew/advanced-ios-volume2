@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0UE-5B-JdT">
-                                <rect key="frame" x="40.5" y="60" width="333" height="422"/>
+                                <rect key="frame" x="40.5" y="60" width="333" height="844"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app is not endorsed by Tesla, and any price is entirely fictional" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTJ-Jb-dQz">
-                                <rect key="frame" x="13" y="700" width="388.5" height="41"/>
+                                <rect key="frame" x="13" y="1122" width="388.5" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="8wa-ia-G80"/>
                                 </constraints>
@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wd-TK-jPz">
-                                <rect key="frame" x="147" y="768" width="120" height="44"/>
+                                <rect key="frame" x="147" y="1190" width="120" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="1F0-iD-2SP"/>
                                 </constraints>
