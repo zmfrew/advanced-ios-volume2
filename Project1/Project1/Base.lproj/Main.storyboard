@@ -114,6 +114,9 @@
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10000" minValue="0.0" maxValue="200000" translatesAutoresizingMaskIntoConstraints="NO" id="aHf-Nr-wA4">
                                         <rect key="frame" x="-2" y="148.5" width="378" height="31"/>
+                                        <connections>
+                                            <action selector="calculateValueWithSender:" destination="p88-eP-cWf" eventType="valueChanged" id="rM4-fT-ddp"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONDITION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R6b-OK-uh3">
                                         <rect key="frame" x="0.0" y="183.5" width="374" height="20.5"/>
@@ -175,7 +178,7 @@
     <resources>
         <image name="logo" width="333" height="422"/>
         <namedColor name="TeslaRed">
-            <color red="0.88200000000000001" green="0.096699999999999994" blue="0.216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.88200002908706665" green="0.097000002861022949" blue="0.21600000560283661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
