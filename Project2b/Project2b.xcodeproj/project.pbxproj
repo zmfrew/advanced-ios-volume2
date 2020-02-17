@@ -14,6 +14,7 @@
 		576BAB6023ECC55400A795CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576BAB5E23ECC55400A795CF /* Main.storyboard */; };
 		576BAB6223ECC55600A795CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576BAB6123ECC55600A795CF /* Assets.xcassets */; };
 		576BAB6523ECC55600A795CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576BAB6323ECC55600A795CF /* LaunchScreen.storyboard */; };
+		576BAB6D23ECC57600A795CF /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576BAB6C23ECC57600A795CF /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		576BAB6123ECC55600A795CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		576BAB6423ECC55600A795CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		576BAB6623ECC55600A795CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		576BAB6C23ECC57600A795CF /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				576BAB5623ECC55400A795CF /* AppDelegate.swift */,
 				576BAB5823ECC55400A795CF /* Scene.sks */,
+				576BAB6C23ECC57600A795CF /* SwiftyJSON.swift */,
 				576BAB5A23ECC55400A795CF /* Scene.swift */,
 				576BAB5C23ECC55400A795CF /* ViewController.swift */,
 				576BAB5E23ECC55400A795CF /* Main.storyboard */,
@@ -145,6 +148,7 @@
 				576BAB5D23ECC55400A795CF /* ViewController.swift in Sources */,
 				576BAB5B23ECC55400A795CF /* Scene.swift in Sources */,
 				576BAB5723ECC55400A795CF /* AppDelegate.swift in Sources */,
+				576BAB6D23ECC57600A795CF /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
