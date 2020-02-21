@@ -23,6 +23,7 @@
 		578C8F3B23FC865A00164B12 /* advanced-ios-volume-one.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 578C8F3023FC865A00164B12 /* advanced-ios-volume-one.pdf */; };
 		578C8F3C23FC865A00164B12 /* hacking-with-macos.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 578C8F3123FC865A00164B12 /* hacking-with-macos.pdf */; };
 		578C8F3D23FC865A00164B12 /* practical-ios-11.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 578C8F3223FC865A00164B12 /* practical-ios-11.pdf */; };
+		57AF5254240047150015AC04 /* SampleWaterMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF5253240047150015AC04 /* SampleWaterMark.swift */; };
 		57B06A5C23FDA12800BC9CBD /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B06A5B23FDA12800BC9CBD /* FilesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		578C8F3023FC865A00164B12 /* advanced-ios-volume-one.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "advanced-ios-volume-one.pdf"; sourceTree = "<group>"; };
 		578C8F3123FC865A00164B12 /* hacking-with-macos.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "hacking-with-macos.pdf"; sourceTree = "<group>"; };
 		578C8F3223FC865A00164B12 /* practical-ios-11.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "practical-ios-11.pdf"; sourceTree = "<group>"; };
+		57AF5253240047150015AC04 /* SampleWaterMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWaterMark.swift; sourceTree = "<group>"; };
 		57B06A5B23FDA12800BC9CBD /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 		578C8F0823FC863200164B12 = {
 			isa = PBXGroup;
 			children = (
+				57AF5253240047150015AC04 /* SampleWaterMark.swift */,
 				578C8F1323FC863200164B12 /* Project4 */,
 				578C8F1223FC863200164B12 /* Products */,
 			);
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57AF5254240047150015AC04 /* SampleWaterMark.swift in Sources */,
 				578C8F1923FC863200164B12 /* ViewController.swift in Sources */,
 				57B06A5C23FDA12800BC9CBD /* FilesViewController.swift in Sources */,
 				578C8F1523FC863200164B12 /* AppDelegate.swift in Sources */,
