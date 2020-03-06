@@ -10,6 +10,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Import", style: .plain, target: self, action: #selector(importPhoto))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sharePhoto))
     }
     
     override func viewDidLayoutSubviews() {
@@ -17,11 +18,23 @@ final class ViewController: UIViewController {
         addBlurRects()
     }
     
+    @objc func faceTapped(_ sender: UITapGestureRecognizer) {
+        guard let vw = sender.view else { return }
+        detectedFaces[vw.tag].blur = !detectedFaces[vw.tag].blur
+        renderBlurredFaces()
+    }
+    
     @objc func importPhoto() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    @objc func sharePhoto() {
+        guard let img = imageView.image else { return }
+        let ac = UIActivityViewController(activityItems: [img], applicationActivities: nil)
+        present(ac, animated: true)
     }
     
     func addBlurRects() {
@@ -44,6 +57,9 @@ final class ViewController: UIViewController {
             vw.layer.borderColor = UIColor.red.cgColor
             vw.layer.borderWidth = 2
             imageView.addSubview(vw)
+            
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(faceTapped))
+            vw.addGestureRecognizer(recognizer)
         }
     }
     
@@ -67,6 +83,41 @@ final class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func renderBlurredFaces() {
+        guard let currentUIImage = inputImage,
+            let currentCGImage = currentUIImage.cgImage else { return }
+        let currentCIImage = CIImage(cgImage: currentCGImage)
+        let filter = CIFilter(name: "CIPixellate")
+        filter?.setValue(currentCIImage, forKey: kCIInputImageKey)
+        filter?.setValue(12, forKey: kCIInputScaleKey)
+        guard let outputImage = filter?.outputImage else { return }
+        let blurredImage = UIImage(ciImage: outputImage)
+        
+        let renderer = UIGraphicsImageRenderer(size: currentUIImage.size)
+        let result = renderer.image { ctx in
+            currentUIImage.draw(at: .zero)
+            let path = UIBezierPath()
+            
+            for face in detectedFaces {
+                if face.blur {
+                    let boundingBox = face.observation.boundingBox
+                    let size = CGSize(width: boundingBox.width * currentUIImage.size.width, height: boundingBox.height * currentUIImage.size.height)
+                    let origin = CGPoint(x: boundingBox.minX * currentUIImage.size.width, y: (1 - face.observation.boundingBox.minY) * currentUIImage.size.height - size.height)
+                    let rect = CGRect(origin: origin, size: size)
+                    let miniPath = UIBezierPath(rect: rect)
+                    path.append(miniPath)
+                }
+            }
+            
+            if !path.isEmpty {
+                path.addClip()
+                blurredImage.draw(at: .zero)
+            }
+        }
+        
+        imageView.image = result
     }
 }
 
