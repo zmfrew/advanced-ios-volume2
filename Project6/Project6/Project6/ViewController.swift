@@ -2,8 +2,8 @@ import StoreKit
 import UIKit
 
 class ViewController: UIViewController {
-    // curl -v -H 'Authorization: Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpXVFo4M0ZOUTYifQ.eyJpc3MiOiJQS0s4N1M2Sk5ZIiwiaWF0IjoxNTgzNTk4NDYyLCJleHAiOjE1ODM2NDE2NjJ9.RqGF3Gp8j-Rv-tdSfK0xacIvGUg5fmh20bVXypWzfoZNIx4HOkiva1RiOXoWDTxoOjE4WNALpRKuqcR-w7sJVA' "https://api.music.apple.com/v1/catalog/us/artists/36954"
-    let developToken = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpXVFo4M0ZOUTYifQ.eyJpc3MiOiJQS0s4N1M2Sk5ZIiwiaWF0IjoxNTgzNTk4NDYyLCJleHAiOjE1ODM2NDE2NjJ9.RqGF3Gp8j-Rv-tdSfK0xacIvGUg5fmh20bVXypWzfoZNIx4HOkiva1RiOXoWDTxoOjE4WNALpRKuqcR-w7sJVA"
+    // Run 'python music.py' to get a new token, which is valid for 12 hours.
+    let developToken = " eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpXVFo4M0ZOUTYifQ.eyJpc3MiOiJQS0s4N1M2Sk5ZIiwiaWF0IjoxNTgzNzA0MjU1LCJleHAiOjE1ODM3NDc0NTV9.3oZkrKA_kzoBn5Z1hbCkhmb5CIxpJNGW35n03Sr3hi7Y4s9XN4iWq9IlCv-8Vk7hdPP-PLqoIFMu3GLqwBs1zA"
     let urlSession = URLSession(configuration: .default)
     
     override func viewDidLoad() {
@@ -47,7 +47,9 @@ class ViewController: UIViewController {
                     let musicResult = try decoder.decode(MusicResult.self, from: data)
                     if let songs = musicResult.results.songs.first?.data {
                         let shuffledSongs = songs.shuffled()
-                        // show our game controller
+                        let gameController = PlayViewController()
+                        gameController.songs = shuffledSongs
+                        self.present(gameController, animated: true)
                         return
                     }
                 } catch {

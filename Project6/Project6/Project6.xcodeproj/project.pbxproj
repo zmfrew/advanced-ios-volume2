@@ -13,6 +13,8 @@
 		57B4CF8624129AF70056795A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B4CF8424129AF70056795A /* Main.storyboard */; };
 		57B4CF8824129AF90056795A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B4CF8724129AF90056795A /* Assets.xcassets */; };
 		57B4CF8B24129AF90056795A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57B4CF8924129AF90056795A /* LaunchScreen.storyboard */; };
+		57DF8DA624157AED001F62E7 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DF8DA524157AED001F62E7 /* PlayerView.swift */; };
+		57DF8DA824157B21001F62E7 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DF8DA724157B21001F62E7 /* PlayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		57B4CF8724129AF90056795A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57B4CF8A24129AF90056795A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57B4CF8C24129AF90056795A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57DF8DA524157AED001F62E7 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		57DF8DA724157B21001F62E7 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				57B4CF7E24129AF70056795A /* AppDelegate.swift */,
 				57B4CF8224129AF70056795A /* ViewController.swift */,
 				57B3CE9A24140E4800255D23 /* MusicTypes.swift */,
+				57DF8DA524157AED001F62E7 /* PlayerView.swift */,
+				57DF8DA724157B21001F62E7 /* PlayViewController.swift */,
 				57B4CF8424129AF70056795A /* Main.storyboard */,
 				57B4CF8724129AF90056795A /* Assets.xcassets */,
 				57B4CF8924129AF90056795A /* LaunchScreen.storyboard */,
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				57B4CF8324129AF70056795A /* ViewController.swift in Sources */,
+				57DF8DA824157B21001F62E7 /* PlayViewController.swift in Sources */,
 				57B3CE9B24140E4800255D23 /* MusicTypes.swift in Sources */,
 				57B4CF7F24129AF70056795A /* AppDelegate.swift in Sources */,
+				57DF8DA624157AED001F62E7 /* PlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
