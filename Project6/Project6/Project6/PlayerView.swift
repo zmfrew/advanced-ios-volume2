@@ -32,6 +32,7 @@ final class PlayerView: UIView {
         select.setTitle("Select Song", for: .normal)
         select.setTitleColor(.white, for: .normal)
         select.showsTouchWhenHighlighted = true
+        select.addTarget(self, action: #selector(selectTapped), for: .touchUpInside)
         
         picker.dataSource = self
         picker.delegate = self
@@ -39,6 +40,11 @@ final class PlayerView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    @objc func selectTapped() {
+        let selection = sortedSongs[picker.selectedRow(inComponent: 0)]
+        controller?.selectTapped(player: select.backgroundColor!, answer: selection.attributes.name)
     }
 }
 
