@@ -48,12 +48,20 @@ class ViewController: UIViewController {
         recordingActive = false
 
         assetWriter?.finishWriting {
-            if (self.assetWriter?.status == .failed) {
+            if self.assetWriter?.status == .failed {
                 print("Failed to save.")
             } else {
                 print("Succeeded saving.")
+                DispatchQueue.main.async {
+                    let results = ResultsViewController(style: .plain)
+                    results.movieURL = self.movieURL
+                    results.predictions = self.predictions
+                    self.navigationController?.pushViewController(results, animated: true)
+                }
             }
         }
+        
+         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Record", style: .plain, target: self, action: #selector(startRecording))
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connetion: AVCaptureConnection) {
@@ -64,14 +72,11 @@ class ViewController: UIViewController {
         let currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
 
         if assetWriter.status == .unknown {
-            // store this away so we can calculate time offsets later
             startTime = currentTime
 
-            // start writing data to disk
             assetWriter.startWriting()
             assetWriter.startSession(atSourceTime: currentTime)
 
-            // we're done for now, so exit
             return
         }
         
@@ -82,6 +87,24 @@ class ViewController: UIViewController {
         
         guard readyToAnalyze else { return }
         readyToAnalyze = false
+        
+        DispatchQueue.global().async {
+            let inputSize = CGSize(width: 227.0, height: 227.0)
+            let image = CIImage(cvImageBuffer: pixelBuffer)
+            guard let resizedPixelBuffer = image.pixelBuffer(at: inputSize, context: self.context) else { return }
+            
+            let prediction = try? self.model.prediction(image: resizedPixelBuffer)
+            let predictionName = prediction?.classLabel ?? "Unknown"
+            
+            print("\(self.predictions.count): \(predictionName)")
+            let timeDiff = currentTime - self.startTime
+            
+            if !self.predictions.contains(where: { $1 == predictionName }) {
+                self.predictions.append((timeDiff, predictionName))
+            }
+            
+            self.readyToAnalyze = true
+        }
     }
     
     func configureMovieWriting() throws {

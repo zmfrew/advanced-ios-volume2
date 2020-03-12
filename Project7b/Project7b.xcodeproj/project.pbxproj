@@ -15,6 +15,7 @@
 		57192C9E241A6DFB00F9A01D /* SqueezeNet Details.txt in Resources */ = {isa = PBXBuildFile; fileRef = 57192C9C241A6DFB00F9A01D /* SqueezeNet Details.txt */; };
 		57192C9F241A6DFB00F9A01D /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 57192C9D241A6DFB00F9A01D /* SqueezeNet.mlmodel */; };
 		57192CA1241A6E9D00F9A01D /* CapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57192CA0241A6E9D00F9A01D /* CapturePreviewView.swift */; };
+		57192CA3241A90C600F9A01D /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57192CA2241A90C600F9A01D /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		57192C9C241A6DFB00F9A01D /* SqueezeNet Details.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SqueezeNet Details.txt"; sourceTree = "<group>"; };
 		57192C9D241A6DFB00F9A01D /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
 		57192CA0241A6E9D00F9A01D /* CapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePreviewView.swift; sourceTree = "<group>"; };
+		57192CA2241A90C600F9A01D /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				57192C88241A6DE200F9A01D /* AppDelegate.swift */,
+				57192CA2241A90C600F9A01D /* ResultsViewController.swift */,
 				57192C8C241A6DE200F9A01D /* ViewController.swift */,
 				57192C9C241A6DFB00F9A01D /* SqueezeNet Details.txt */,
 				57192CA0241A6E9D00F9A01D /* CapturePreviewView.swift */,
@@ -148,6 +151,7 @@
 				57192C8D241A6DE200F9A01D /* ViewController.swift in Sources */,
 				57192C89241A6DE200F9A01D /* AppDelegate.swift in Sources */,
 				57192CA1241A6E9D00F9A01D /* CapturePreviewView.swift in Sources */,
+				57192CA3241A90C600F9A01D /* ResultsViewController.swift in Sources */,
 				57192C9F241A6DFB00F9A01D /* SqueezeNet.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
