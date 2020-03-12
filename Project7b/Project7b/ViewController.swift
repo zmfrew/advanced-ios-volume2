@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     let model = SqueezeNet()
     var movieURL: URL!
     var predictions = [(time: CMTime, prediction: String)]()
-    let readyToAnalyze = true
+    var readyToAnalyze = true
     var recordingActive = false
     let session = AVCaptureSession()
     var startTime: CMTime!
@@ -79,6 +79,9 @@ class ViewController: UIViewController {
         if writerInput.isReadyForMoreMediaData {
             writerInput.append(sampleBuffer)
         }
+        
+        guard readyToAnalyze else { return }
+        readyToAnalyze = false
     }
     
     func configureMovieWriting() throws {
@@ -143,6 +146,30 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    
+extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate { }
+
+extension CIImage {
+    func pixelBuffer(at size: CGSize, context: CIContext) -> CVPixelBuffer? {
+        let attributes = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        
+        var pixelBuffer: CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(size.width), Int(size.height), kCVPixelFormatType_32ARGB, attributes, &pixelBuffer)
+        guard status == kCVReturnSuccess else { return nil }
+        
+        let scale = size.width / self.extent.size.width
+        let resizedImage = self.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        let width = resizedImage.extent.width
+        let height = resizedImage.extent.height
+        let yOffset = (CGFloat(height) - size.height) / 2.0
+        let rect = CGRect(x: (CGFloat(width) - size.width) / 2.0, y: yOffset, width: size.width, height: size.height)
+        
+        let croppedImage = resizedImage.cropped(to: rect)
+        let translatedImage = croppedImage.transformed(by: CGAffineTransform(translationX: 0, y: -yOffset))
+        
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        context.render(translatedImage, to: pixelBuffer!)
+        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        
+        return pixelBuffer
+    }
 }
